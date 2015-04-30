@@ -6,6 +6,7 @@
 		</title>
 	</head>
 	<body style="background-color:blue">
+		<div>It's php now</div>
 		<?php
 			print "<h1>Sorry for the inline style...</h1>";
 		?>
