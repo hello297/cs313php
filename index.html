@@ -1,11 +1,161 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>
-			Test the stuff!!!
-		</title>
+		<script src="index.js" type="text/javascript"></script>
+		<title>Takeshi's Homepage</title>
+		<link rel="stylesheet" type="text/css" href="theme.css"/>
 	</head>
-	<body style="background-color:blue">
-		<h1>Sorry for the inline style...</h1>
+	<body>
+		<a name="#TOP"></a>
+		<h1>Welcome to the Wonderful Homepage of Takeshi</h1>
+		<img src="family.jpg" width="450px" height="300px"/>
+		<div class="header" onclick="change(this.id)" id="intro">
+			Introduction
+		</div>
+		<div class="content" id="introp">
+			I am Japanese born in Japan but I claim Michigan to be home because I have lived there for about 20 years. My family has 9 people in it. My Parents and 7 children. I am the 6th child. Most of my siblings are married but I'm still looking. I enjoy doing Rubik's cube style puzzles.  Yes, I said I enjoy those things.  So far my collection contains about 20 different puzzles of all shapes and sizes.  But most importantly, I love swing dancing.  Swing dancing is pretty much what I look forward to in life.  Without it, I might as well be dead.
+		</div>
+		<br/>
+		<div class="header" id="schedule" onclick="change(this.id)">
+			Schedule
+		</div>
+		<table class="content" id="schedulep">
+			<th>
+				Class Name
+			</th>
+			<th>
+				Time
+			</th>
+			<th>
+				Location
+			</th>
+			<th>
+				Class Code
+			</th>
+			<th>
+				Teacher
+			</th>
+			<tr>
+				<td>
+					Technical Communication
+				</td>
+				<td>
+					MWF -9:00-10:00<br/>T -9:00-10:00 
+				</td>
+				<td>
+					Austin-210
+				</td>
+				<td>
+					CS 308
+				</td>
+				<td>
+					Brother Twitchell
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Teachings of the Living Prophets
+				</td>
+				<td>
+					MWF -10:15-11:15
+				</td>
+				<td>
+					Taylor-100
+				</td>
+				<td>
+					REL 333
+				</td>
+				<td>
+					Brother Wahlquist
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Web Engineering II
+				</td>
+				<td>
+					MW -3:15-4:45
+				</td>
+				<td>
+					Austin-210
+				</td>
+				<td>
+					CS 313
+				</td>
+				<td>
+					Brother Burton
+				</td>
+			</tr>
+			<tr>
+				<td>
+					The Developing World
+				</td>
+				<td>
+					MW -2:00-3:00
+				</td>
+				<td>
+					Hinckley-286
+				</td>
+				<td>
+					FDCA 202
+				</td>
+				<td>
+					Brother Meeker
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Linear Algebra
+				</td>
+				<td>
+					MWF -11:30-12:30
+				</td>
+				<td>
+					Ricks-180
+				</td>
+				<td>
+					MATH 341
+				</td>
+				<td>
+					Brother Howard
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Beginning Physics Lab
+				</td>
+				<td>
+					R -3:15-6:00
+				</td>
+				<td>
+					Romney-171
+				</td>
+				<td>
+					PH 150
+				</td>
+				<td>
+					Brother Collins 
+				</td>
+			</tr>
+		</table>
+		<br/>
+		<div class="header" id="link" onclick="change(this.id)">
+		Some Useful Links
+		</div>
+		<div class="content" id="linkp">
+			<a href="assignments.html">Other wonderful assignments of Takeshi</a><br/>
+			<a href="https://www.facebook.com/lamont.bushman">Lamont Bushman's Facebook</a><br/>	
+				<a href="https://my.byui.edu/ICS/">The wonderful BYU-I website</a><br/>
+			<a href="https://ilearn.byui.edu">I-Learn</a><br/>
+		</div>
+		<br/>
+	
+		<div class="header" id="ulink" onclick="change(this.id)">
+		Some Not-so-Useful Links
+		</div>
+		<div class="content" id="ulinkp">
+			<a href="http://www.xkcd.com">Good fun at XKCD</a>
+		</div>
+		<span class="footer" ><a href="#TOP">TOP</a><span>
 	</body>
 </html>
