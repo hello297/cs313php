@@ -17,6 +17,17 @@ body
 	border-radius:10px;
 }
 
+.question {
+	text-shadow: -1px 0 #ff3300, 0 1px #ff3300, 1px 0 #ff3300, 0 -1px #ff3300;
+	background-color:rgba(255, 0, 0, 0.5);
+	border: 3px solid #ff99ff;
+	width:500px;
+	color:white;
+	font-size:20px;
+	padding: 10px 10px 10px 40px;
+	border-radius:10px;
+}
+
 .content {
 	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 	display:none;
@@ -37,6 +48,12 @@ td {
 	height: 30px;
 	padding-left:5px;
 	padding-right:5px;
+}
+
+.bar {
+	padding: 10px 10px 10px 10px;
+	background-color:rgba(40, 160, 55, 0.5);
+	margin: 10px 10px 10px 30px;
 }
 
 .footer { 
