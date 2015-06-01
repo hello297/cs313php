@@ -12,7 +12,10 @@
 			<input type="submit" value="Login"/>
 		</form>
 		<?php
-			$message = "Type your username and password to login <br/>";
+			$message = "Type your username and password to login <br/>
+			<span>Guest account<br/>
+			Username: guest<br/>
+			Password: 1234<br/>";
 			$passCheck = false;
 			$userCheck = false;
 			
