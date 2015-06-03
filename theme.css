@@ -1,6 +1,6 @@
 body 
 {
-	padding-left:15%;
+	padding-left:10%;
 	padding-top:-20px;
 	background: url("background.jpg") no-repeat center center fixed;
 	background-size: cover;
@@ -66,4 +66,30 @@ td {
 img {
 	padding-left: 20px;
 	padding-bottom:10px;
+}
+
+.entry {
+	margin: 0px 0px 0px 0px;
+	float: left;
+	width:340px;
+	height: 340px;
+}
+
+#data{
+	float:left; 
+	width:70%;
+}
+
+iframe {
+	padding: 0px 10px 0px 10px;
+}
+
+.searchBar {
+	float: right;
+	right:0;
+	margin-right: 5%;
+	position:fixed;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	height:100%;
 }
