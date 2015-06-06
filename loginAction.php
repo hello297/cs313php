@@ -1,5 +1,5 @@
 <?php
-	
+	echo "just work!";
 	session_start();
 	include 'db.php';
 	
@@ -24,9 +24,8 @@
 	{
 		$_SESSION['invalid'] = true;
 	}
-	echo "just work!";
 	echo $_SESSION['user'];
-	header("Location: http://php-hello297.rhcloud.com/danceLogin.php");
+	header("Location: " . "http://php-hello297.rhcloud.com/danceLogin.php");
 ?>
 <!DOCTYPE html>
 <html>
