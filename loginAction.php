@@ -5,9 +5,10 @@
 	
 	// Verifying the password
 	$pass = $db->prepare('select * from users where username=:user');
-	$pass->bindParam(':user',$_POST['username']);
+	$pass->bindParam(':user', $_POST['username']);
+	echo $_POST['username'];
 	$pass->execute();
-	
+	echo "not here";
 	if ($passRow = $pass->fetch())
 	{
 		if (password_verify($_POST['password'], $passRow['password']))
