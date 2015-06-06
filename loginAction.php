@@ -11,18 +11,21 @@
 	echo "not here";
 	if ($passRow = $pass->fetch())
 	{
+		echo "there was a match";
 		if (password_verify($_POST['password'], $passRow['password']))
 		{
-
+			echo "in the pass if";
 			$_SESSION['user'] = $passRow['username'];
 		}
 		else
 		{
+			echo "wrong password";
 			$_SESSION['wrong'] = true;
 		}
 	}
 	else
 	{
+		echo "invalid";
 		$_SESSION['invalid'] = true;
 	}
 	echo $_SESSION['user'];
