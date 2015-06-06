@@ -22,5 +22,5 @@
 	{
 		$_SESSION['invalid'] = true;
 	}
-	header('Location: http://php-hello297.rhcloud.com/danceLogin.php');
+	header("Location: http://php-hello297.rhcloud.com/danceLogin.php");
 ?>
