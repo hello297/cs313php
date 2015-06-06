@@ -1,4 +1,6 @@
+is it even loading?
 <?php
+	
 	session_start();
 	include 'db.php';
 	
