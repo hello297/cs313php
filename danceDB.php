@@ -1,5 +1,9 @@
 <?php 
 	session_start();
+	if (!isset($_SESSION['user']))
+	{
+		header("Location: danceLogin.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,84 +17,74 @@
 		<h1>The Marvelous Dance Database</h1>
 		<div  id="data">
 			<?php
-				$message = "Type your username and password to login <br/>";
+				
 				$passCheck = false;
 				$userCheck = false;
 				
 				include 'db.php';
-				$_SESSION['user'] = $_POST['username'];
+				
+				if (isset($_POST['username']))
+				{
+					$_SESSION['user'] = $_POST['username'];
+				}
+				
+				
 				$query = $db->prepare('select * from learned_moves inner join moves on (moves.id = learned_moves.move_id and learned_moves.user_id = :user)');
 				$query->bindParam(':user', $_SESSION['user']);
 				$query->execute();
 				
 				echo "<h2>{$_SESSION['user']}'s List</h2>";
 				
-				while($row = $query->fetch())
+				if (!$row = $query->fetch())
 				{
-					echo "<div class='entry'>" . $row['move_name'] . '<br/><iframe width="320" height="195" src="http://www.youtube.com/embed/' . $row['link_code'] . '" frameborder="0" allowfullscreen></iframe><br/>'. $row['description'] . '<br/>' . $row['style'] . "<br/></div>";
+					echo "You have no moves registered";
 				}
-				/*
-				if (!empty($_POST['username']))
+				else
 				{
-					$userCheck = true;
-					if (!empty($_POST['password']))
-					{
-						$passCheck = true;
-						$user = $_POST['username'];
-						$pass = $_POST['password'];
-						
-						
-						$userDB = $db->prepare("SELECT * FROM users WHERE username = :user AND password = :pass");
-						
-						$userDB->bindParam(':user', $user);
-						$userDB->bindParam(':pass', $pass);	
-						$userDB->execute();
-						
-						$rows = $userDB->fetch(PDO::FETCH_NUM);
-						if ($rows > 0)
-						{
-							$_SESSION['user'] = $user;
-							echo "<h2>$user's List</h2>";
-							foreach($db->query("SELECT * FROM learned_moves WHERE user_id = '$user'") as $row)
-							{
-								$moveID = $row['move_id'];
-								foreach($db->query("SELECT * FROM moves WHERE id = '$moveID'") as $moveRow)
-								{
-									echo "<div class='entry'>" . $moveRow['move_name'] . '<br/><iframe width="320" height="195" src="https://www.youtube.com/embed/' . $moveRow['link_code'] . '" frameborder="0" allowfullscreen></iframe><br/>'. $moveRow['description'] . '<br/>' . $moveRow['style'] . "<br/>";
-								}
-								echo "coolness: " . $row['coolness'] . '<br/>hardness: ' . $row['hardness'] . "</div>";
-							}
-						}
-						else
-						{
-							$passCheck = false;
-							echo "<script>alert('Type a valid username and password combination');</script>";
-						}
-					}
-					else
-					{
-						$passCheck = false;
-						$message = "Enter a password<br/>";
-					}
-				}
-				else 
-				{
-					$userCheck = false;
-					$message = "Enter a username <br/>";
+					displayEntry($row);
 				}
 				
-				if (!$passCheck || !$userCheck)
+				while($row = $query->fetch())
 				{
-					echo $message;
-					//header('Location: ' . 'danceLogin.php');
-				}*/
+					displayEntry($row);
+				}
 			?>
 		</div>
-		<form class="searchBar" action="javascript:void(0);">
-			<input type="text" placeholder="Search" id="search" onKeyPress="if (event.which == 13) update();">
-			<br><input type="button" value="Search" onclick="update();">
-		</form>
-		
-		<span class="footer" ><a href="index.html">HOME</a></span>
+		<div class="searchBar">
+			<a href="index.html">HOME</a><br>
+			<a href="assignments.html">ASSIGNMENTS</a><br><?php
+				if (isset($_SESSION['user']))
+				{
+			?>
+				<a href='danceLogin.php'>The general list</a><br>
+				<a onclick='logout();' href="">Logout</a>
+			<?php 
+				}
+			?><br><br>
+			<strong>Search</strong><br>
+			<form action="javascript:void(0);">
+				<input type="text" placeholder="Search" id="search" onKeyPress="if (event.which == 13) update('users');">
+				<br><input type="button" value="Search" onclick="update('users');">
+				<br><br>
+				<strong>Register a new move</strong><br>
+				<input style="width:184px" type="text" id="name" placeholder="*Move name" onKeyPress="if (event.which == 13) register();" name="moveName"><br>
+				<textarea style="width:182px" rows="6" cols="21" id="desc" placeholder="*Enter Description"></textarea><br>
+				Youtube code: 
+				<input style="width:85px; float: right" type="text" id="code" placeholder="F5_z5TbG2y8" maxlength="11" name="link"><br>
+				<span style="float: left">Start Time: </span><input id="start" style="width:85px; float:right" type='text'><br>
+				<span style="float: left">End Time: </span><input id="end" class="inputField" type='text'><br><br>
+				*Style: <select id="style">
+					<option value="Lindy Hop">Lindy Hop</option>
+					<option value="Charleston">Charleston</option>
+					<option value="Blues">Blues</option>
+				</select><br>
+				<label>Coolness: </label><input type="range" value="1" min="1" max="9" id="coolness" onchange="display(this.id)"/>
+				<span style="width: 20px" id="coolnessLabel"> </span><br>
+				<label>Hardness: </label><input type="range" value="1" min="1" max="9" id="hardness"onchange="display(this.id)"/>
+				<span style="width: 20px" id="hardnessLabel"> </span><br>
+				<input type="button" value="Submit" onclick="register()">
+			</form>
+			
+		</div>
 	</body>
 </html>
