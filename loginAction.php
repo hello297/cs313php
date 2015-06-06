@@ -11,6 +11,7 @@
 	{
 		if (password_verify($_POST['password'], $passRow['password']))
 		{
+			echo "just work!";
 			$_SESSION['user'] = $passRow['username'];
 		}
 		else
@@ -22,5 +23,7 @@
 	{
 		$_SESSION['invalid'] = true;
 	}
+	
+	echo $_SESSION['user'];
 	header("Location: http://php-hello297.rhcloud.com/danceLogin.php");
 ?>

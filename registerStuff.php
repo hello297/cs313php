@@ -2,7 +2,7 @@
 	session_start();
 	if (isset($_SESSION['user']))
 	{
-		header('Location: http://php-hello297.rhcloud.com/danceLogin.php');
+		header("Location: http://php-hello297.rhcloud.com/danceLogin.php");
 	}
 	include 'db.php';
 	unset($_SESSION['invalid']);
