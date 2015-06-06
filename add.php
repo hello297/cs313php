@@ -28,3 +28,6 @@
 	
 	echo "The move has been added";
 ?>
+<!DOCTYPE html>
+<html>
+</html>

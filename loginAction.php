@@ -1,4 +1,3 @@
-is it even loading?
 <?php
 	
 	session_start();
@@ -29,3 +28,6 @@ is it even loading?
 	echo $_SESSION['user'];
 	header("Location: http://php-hello297.rhcloud.com/danceLogin.php");
 ?>
+<!DOCTYPE html>
+<html>
+</html>

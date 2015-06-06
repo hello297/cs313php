@@ -38,3 +38,6 @@
 	}
 	header("Location: http://php-hello297.rhcloud.com/danceLogin.php");
 ?>
+<!DOCTYPE html>
+<html>
+</html>
