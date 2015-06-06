@@ -9,8 +9,6 @@
 	
 	if ($passRow = $pass->fetch())
 	{
-		echo "Password: " . $_POST['password'];
-		echo "<br>Password Hash: " . $passRow['password'];
 		if (password_verify($_POST['password'], $passRow['password']))
 		{
 			$_SESSION['user'] = $passRow['username'];
