@@ -2,7 +2,7 @@
 	session_start();
 	if (isset($_SESSION['user']))
 	{
-		header('Location: danceLogin.php');
+		header('Location: http://php-hello297.rhcloud.com/danceLogin.php');
 	}
 	include 'db.php';
 	unset($_SESSION['invalid']);
@@ -23,38 +23,18 @@
 			$statements->bindParam(':gender', $_POST['gender']);
 			$statements->execute();
 			$_SESSION['user'] = $_POST['username'];
-			header('Location: danceLogin.php');
+			header('Location: http://php-hello297.rhcloud.com/danceLogin.php');
 		}
 		else
 		{
 			$_SESSION['nomatch'] = true;
-			header('Location: registerPerson.php');
+			header('Location: http://php-hello297.rhcloud.com/registerPerson.php');
 		}
 	}
 	else 
 	{
 		$_SESSION['invalid'] = true;
-		header('Location: registerPerson.php');
+		header('Location: http://php-hello297.rhcloud.com/registerPerson.php');
 	}
-	
-	/*
-	else
-	{
-		if ($row = $statement->fetch())
-		{
-			if (password_verify($_POST['password'], $row['password']))
-			{
-				$_SESSION['uid'] = $row['id'];
-			}
-			else
-			{
-				$_SESSION['invalid'] = true;
-			}
-		}
-		else
-		{
-			$_SESSION['invalid'] = true;
-		}
-	}*/
-//	header('Location: ' . 'danceLogin.php');
+	header('Location: ' . 'http://php-hello297.rhcloud.com/danceLogin.php');
 ?>

@@ -2,7 +2,7 @@
 	session_start();
 	if (isset($_SESSION['user']))
 	{
-		header('Location: ' . 'danceDB.php');
+		header('Location: ' . 'http://php-hello297.rhcloud.com/danceDB.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -62,5 +62,4 @@
 			?>
 		</div>
 	</body>
-</html>
 </html>
