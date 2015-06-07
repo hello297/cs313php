@@ -41,7 +41,3 @@
 		$user->execute();
 	}
 ?>
-
-<!DOCTYPE html>
-<html>
-</html>

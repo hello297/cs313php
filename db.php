@@ -22,7 +22,7 @@
 		echo $row['description'] . '<br/>' . $row['style'] . "<br/>";
 		if (isset($_SESSION['user']))
 		{
-			echo "{$row['coolness']}<br>{$row['hardness']}<br>";
+			echo "Coolness: {$row['coolness']}<br>Hardness: {$row['hardness']}<br>";
 		}
 		echo "</div>";
 	}
