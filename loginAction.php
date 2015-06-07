@@ -6,15 +6,15 @@
 	// Verifying the password
 	$pass = $db->prepare('select * from users where username=:user');
 	$pass->bindParam(':user', $_POST['username']);
-	echo $_POST['username'];
+	//echo $_POST['username'];
 	$pass->execute();
-	echo "not here";
+	//echo "not here";
 	if ($passRow = $pass->fetch())
 	{
-		echo "there was a match";
-		echo $_POST['password'] . "<br>";
-		echo		$passRow['password'] . "<br>";
-		if ($_POST['password'] ==$passRow['password']/*password_verify($_POST['password'], $passRow['password'])*/)
+		echo "there was a match<br>";
+		echo '"' . $_POST['password'] . '"<br>';
+		echo '"' . $passRow['password'] . '"<br>';
+		if ($_POST['password'] == $passRow['password']/*password_verify($_POST['password'], $passRow['password'])*/)
 		{
 			echo "in the pass if";
 			$_SESSION['user'] = $passRow['username'];
