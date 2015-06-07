@@ -15,7 +15,9 @@
 	{
 		if ($_POST['password'] == $_POST['confirm'])
 		{
-			$password_hash  = password_hash($_POST['password'], PASSWORD_DEFAULT);
+			echo "password";
+			$password_hash = "password";
+		//	$password_hash  = password_hash($_POST['password'], PASSWORD_DEFAULT);
 			$statements = $db->prepare('Insert into users (username, password, first_name, last_name, gender) values (:username, :password, :first, :last, :gender)');
 			$statements->bindParam(':password', $password_hash);
 			$statements->bindParam(':username', $_POST['username']);
